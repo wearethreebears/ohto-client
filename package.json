@@ -1,0 +1,11 @@
+{
+    "name": "@ohto/client",
+    "version": "0.1.0",
+    "author": "Liam Hall",
+    "license": "MIT",
+    "dependencies": {
+        "@types/humps": "^2.0.3",
+        "axios": "^1.4.0",
+        "humps": "^2.0.1"
+    }
+}
