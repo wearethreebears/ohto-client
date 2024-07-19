@@ -7,21 +7,11 @@ import type {
 import type { TTrash } from "../../types/request.types";
 import type {
   IBrandResource,
+  IEditBrandRequest,
+  IStoreBrandRequest,
+  IUpdateBrandRequest,
   TBrandRequestWith,
 } from "../../types/products/brands.types";
-
-export interface IStoreBrandRequest {
-  title: string;
-  slug: string;
-}
-
-export interface IUpdateBrandRequest {
-  id: number;
-  title: string;
-  slug: string;
-}
-
-export interface IEditBrandRequest {}
 
 export interface IApiStaffBrands {
   store(
@@ -40,7 +30,7 @@ export interface IApiStaffBrands {
 export default function brands(): IApiStaffBrands {
   const store = (
     data?: TRequestData<IStoreBrandRequest, TBrandRequestWith>
-  ) => {
+  ): TResponseData<IBrandResource> => {
     const request: IRequest = {
       method: "post",
       path: "/brands/store",
@@ -51,7 +41,7 @@ export default function brands(): IApiStaffBrands {
 
   const update = (
     data?: TRequestData<IUpdateBrandRequest, TBrandRequestWith>
-  ) => {
+  ): TResponseData<IBrandResource> => {
     const request: IRequest = {
       method: "post",
       path: "/brands/update",

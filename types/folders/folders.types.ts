@@ -19,6 +19,8 @@ export interface IStoreFolderRequest {
   slug: string;
 }
 
+export interface IEditFolderRequest {}
+
 export interface IFolderResource extends IResource {
   parentFolder?: IFolderResource;
   title: string;

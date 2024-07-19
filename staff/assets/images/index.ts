@@ -6,21 +6,21 @@ import type {
 } from "../../../types/invoke.types";
 
 import type {
+  IImageResource,
   IStoreImageRequest,
   TImageRequestWith,
 } from "../../../types/assets/images.types";
-import { IAssetResource } from "../../../types/assets/assets.types";
 
 export interface IApiStaffAssetsImages {
   store(
     data?: TRequestData<IStoreImageRequest, TImageRequestWith>
-  ): TResponseData<IAssetResource>;
+  ): TResponseData<IImageResource>;
 }
 
 export default function assets(): IApiStaffAssetsImages {
   const store = (
     data?: TRequestData<IStoreImageRequest, TImageRequestWith>
-  ) => {
+  ): TResponseData<IImageResource> => {
     const request: IRequest = {
       method: "post",
       path: "/images/store",

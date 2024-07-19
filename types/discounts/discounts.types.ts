@@ -6,6 +6,35 @@ import type { IDiscountUnitTypeResource } from "./discount-unit-types/discount-u
 
 export type TDiscountRequestWith = ("eligibleUsers" | "eligibleSegments")[];
 
+export interface IStoreDiscountRequest {
+  code?: string;
+  eligibleUserGroups?: number;
+  eligibleUsers?: number[];
+  eligibleSegments?: number[];
+  discountUnit?: number;
+  discountUnitType?: number;
+  totalUsesAllowed?: number;
+  totalUsesAllowedPerUser?: number;
+  autoApply?: boolean;
+  chargeType?: number;
+}
+
+export interface IUpdateDiscountRequest {
+  id: number;
+  code: string;
+  eligibleUserGroups?: number;
+  eligibleUsers?: number[];
+  eligibleSegments?: number[];
+  discountUnit?: number;
+  discountUnitType?: number;
+  totalUsesAllowed?: number;
+  totalUsesAllowedPerUser?: number;
+  autoApply?: boolean;
+  chargeType?: number;
+}
+
+export interface IEditDiscountRequest {}
+
 export interface IDiscountResource extends IResource {
   code: string;
   discountUnitType?: IDiscountUnitTypeResource;

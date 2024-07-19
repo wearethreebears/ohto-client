@@ -7,14 +7,13 @@ import type {
 } from "../../types/invoke.types";
 
 import type {
+  IEditFolderRequest,
   IFolderRequestRequestData,
   IFolderResource,
   IStoreFolderRequest,
   TFolderCollection,
   TFolderRequestWith,
 } from "../../types/folders/folders.types";
-
-export interface IEditFolderRequest {}
 
 export interface IApiStaffFolders {
   all(
@@ -36,7 +35,7 @@ export interface IApiStaffFolders {
 export default function folders(): IApiStaffFolders {
   const all = (
     data?: TRequestData<IFolderRequestRequestData, TFolderRequestWith>
-  ) => {
+  ): TResponseData<TFolderCollection> => {
     const request: IRequest = {
       method: "get",
       path: "/folders",
@@ -59,7 +58,7 @@ export default function folders(): IApiStaffFolders {
 
   const store = (
     data?: TRequestData<IStoreFolderRequest, TFolderRequestWith>
-  ) => {
+  ): TResponseData<IFolderResource> => {
     const request: IRequest = {
       method: "post",
       path: "/folders/store",
@@ -68,7 +67,9 @@ export default function folders(): IApiStaffFolders {
     return invoke(request, data, EAPI.STAFF);
   };
 
-  const root = (data?: TRequestData<object, TFolderRequestWith>) => {
+  const root = (
+    data?: TRequestData<object, TFolderRequestWith>
+  ): TResponseData<IFolderResource> => {
     return edit("root", data);
   };
 

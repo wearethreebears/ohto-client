@@ -15,6 +15,8 @@ export type TUserRequestWith = (
   | "orders"
 )[];
 
+export interface IEditUserRequest {}
+
 export interface IUserResource extends IResource {
   firstName: string;
   lastName: string;

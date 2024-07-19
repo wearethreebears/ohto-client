@@ -7,12 +7,11 @@ import type {
 import type { TTrash } from "../../types/request.types";
 
 import type {
+  IEditOrderRequest,
   IOrderResource,
   TOrderCollection,
   TOrderRequestWith,
 } from "../../types/orders/orders.types";
-
-export interface IEditOrderRequest {}
 
 export interface IApiStaffOrders {
   all(

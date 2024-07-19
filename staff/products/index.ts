@@ -1,8 +1,10 @@
 import type {
+  IEditProductRequest,
   IProductResource,
+  IStoreProductRequest,
+  IUpdateProductRequest,
   TProductRequestWith,
 } from "../../types/products/index.types";
-import { EProductStatus } from "../../types/products/index.types";
 import invoke, { EAPI } from "../../invoke";
 import type {
   IRequest,
@@ -14,32 +16,6 @@ import attributeTypes, {
   IApiStaffProductsAttributeTypes,
 } from "./attribute-types";
 import attributes, { IApiStaffProductsAttributes } from "./attributes";
-import type { IStoreVariantRequest } from "./variants";
-
-export interface IStoreProductRequest {
-  title: string;
-  slug: string;
-  brand?: number;
-  status?: EProductStatus;
-  productAttributeTypes?: number[];
-  productAttributes?: number[];
-  productVariants?: IStoreVariantRequest[];
-  mediaFiles?: number[];
-}
-
-export interface IUpdateProductRequest {
-  id: number;
-  title: string;
-  slug: string;
-  brand?: number;
-  status?: EProductStatus;
-  productAttributeTypes?: number[];
-  productAttributes?: number[];
-  productVariants?: IStoreVariantRequest[];
-  mediaFiles?: number[];
-}
-
-export interface IEditProductRequest {}
 
 export interface IApiStaffProducts {
   store(
@@ -60,7 +36,7 @@ export interface IApiStaffProducts {
 export default function products(): IApiStaffProducts {
   const store = (
     data?: TRequestData<IStoreProductRequest, TProductRequestWith>
-  ) => {
+  ): TResponseData<IProductResource> => {
     const request: IRequest = {
       method: "post",
       path: "/products/store",
@@ -71,7 +47,7 @@ export default function products(): IApiStaffProducts {
 
   const update = (
     data?: TRequestData<IUpdateProductRequest, TProductRequestWith>
-  ) => {
+  ): TResponseData<IProductResource> => {
     const request: IRequest = {
       method: "post",
       path: "/products/update",

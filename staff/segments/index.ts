@@ -1,4 +1,5 @@
 import invoke, { EAPI } from "../../invoke";
+import { IEditUserRequest } from "../../types/auth/user/user.types";
 import type {
   IRequest,
   TRequestData,
@@ -12,8 +13,6 @@ import type {
   TSegmentCollection,
   TSegmentRequestWith,
 } from "../../types/segments/segments.types";
-
-export interface IEditUserRequest {}
 
 export interface IApiStaffSegments {
   all(

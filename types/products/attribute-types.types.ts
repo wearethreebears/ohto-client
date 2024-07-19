@@ -10,6 +10,19 @@ export type TProductAttributeTypeRequestWith = (
   | "attributes.type"
 )[];
 
+export interface IStoreProductAttributeTypeRequest {
+  title: string;
+  slug: string;
+}
+
+export interface IUpdateProductAttributeTypeRequest {
+  id: number;
+  title: string;
+  slug: string;
+}
+
+export interface IEditProductAttributeTypeRequest {}
+
 export interface IProductAttributeTypesResource extends IResource {
   title: string;
   slug: string;

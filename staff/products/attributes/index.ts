@@ -5,25 +5,13 @@ import type {
   IRequest,
 } from "../../../types/invoke.types";
 import type {
+  IEditProductAttributeRequest,
   IProductAttributesResource,
+  IStoreProductAttributeRequest,
+  IUpdateProductAttributeRequest,
   TProductAttributesRequestWith,
 } from "../../../types/products/attributes.types";
 import type { TTrash } from "../../../types/request.types";
-
-export interface IStoreProductAttributeRequest {
-  title: string;
-  slug: string;
-  type?: number;
-}
-
-export interface IUpdateProductAttributeRequest {
-  id: number;
-  title: string;
-  slug: string;
-  type?: number;
-}
-
-export interface IEditProductAttributeRequest {}
 
 export interface IApiStaffProductsAttributes {
   store(
@@ -54,7 +42,7 @@ export default function attributes(): IApiStaffProductsAttributes {
       IStoreProductAttributeRequest,
       TProductAttributesRequestWith
     >
-  ) => {
+  ): TResponseData<IProductAttributesResource> => {
     const request: IRequest = {
       method: "post",
       path: "/product-attributes/store",
@@ -68,7 +56,7 @@ export default function attributes(): IApiStaffProductsAttributes {
       IUpdateProductAttributeRequest,
       TProductAttributesRequestWith
     >
-  ) => {
+  ): TResponseData<IProductAttributesResource> => {
     const request: IRequest = {
       method: "post",
       path: "/product-attributes/update",

@@ -7,13 +7,12 @@ import type {
 import type { TTrash } from "../../types/request.types";
 
 import type {
+  IEditUserRequest,
   IUserRequestFilters,
   IUserResource,
   TUserCollection,
   TUserRequestWith,
 } from "../../types/auth/user/user.types";
-
-export interface IEditUserRequest {}
 
 export interface IApiStaffCustomers {
   all(

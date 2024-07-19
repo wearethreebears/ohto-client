@@ -9,7 +9,10 @@ import type { TProductAttributeTypesCollection } from "./attribute-types.types";
 import type { TProductAttributesCollection } from "./attributes.types";
 import type { IBrandResource } from "./brands.types";
 import type { TProductOptionCollection } from "./options.types";
-import type { TProductVariantCollection } from "./variants.types";
+import type {
+  IStoreVariantRequest,
+  TProductVariantCollection,
+} from "./variants.types";
 
 export type TProductRequestWith = (
   | "brand"
@@ -58,5 +61,30 @@ export interface IProductResource extends IResource {
   billingModel?: IBillingModelResource;
   billingPeriod?: IBillingPeriodResource;
 }
+
+export interface IStoreProductRequest {
+  title: string;
+  slug: string;
+  brand?: number;
+  status?: EProductStatus;
+  productAttributeTypes?: number[];
+  productAttributes?: number[];
+  productVariants?: IStoreVariantRequest[];
+  mediaFiles?: number[];
+}
+
+export interface IUpdateProductRequest {
+  id: number;
+  title: string;
+  slug: string;
+  brand?: number;
+  status?: EProductStatus;
+  productAttributeTypes?: number[];
+  productAttributes?: number[];
+  productVariants?: IStoreVariantRequest[];
+  mediaFiles?: number[];
+}
+
+export interface IEditProductRequest {}
 
 export type TProductCollection = IProductResource[];

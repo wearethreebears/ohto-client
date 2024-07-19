@@ -7,38 +7,12 @@ import type {
 import type { TTrash } from "../../types/request.types";
 import type {
   IDiscountResource,
+  IEditDiscountRequest,
+  IStoreDiscountRequest,
+  IUpdateDiscountRequest,
   TDiscountCollection,
   TDiscountRequestWith,
 } from "../../types/discounts/discounts.types";
-
-export interface IStoreDiscountRequest {
-  code?: string;
-  eligibleUserGroups?: number;
-  eligibleUsers?: number[];
-  eligibleSegments?: number[];
-  discountUnit?: number;
-  discountUnitType?: number;
-  totalUsesAllowed?: number;
-  totalUsesAllowedPerUser?: number;
-  autoApply?: boolean;
-  chargeType?: number;
-}
-
-export interface IUpdateDiscountRequest {
-  id: number;
-  code: string;
-  eligibleUserGroups?: number;
-  eligibleUsers?: number[];
-  eligibleSegments?: number[];
-  discountUnit?: number;
-  discountUnitType?: number;
-  totalUsesAllowed?: number;
-  totalUsesAllowedPerUser?: number;
-  autoApply?: boolean;
-  chargeType?: number;
-}
-
-export interface IEditDiscountRequest {}
 
 export interface IApiStaffDiscounts {
   all(
@@ -58,7 +32,9 @@ export interface IApiStaffDiscounts {
 }
 
 export default function discounts(): IApiStaffDiscounts {
-  const all = (data?: TRequestData<object, TDiscountRequestWith>) => {
+  const all = (
+    data?: TRequestData<object, TDiscountRequestWith>
+  ): TResponseData<TDiscountCollection> => {
     const request: IRequest = {
       method: "get",
       path: "/discounts",
@@ -69,7 +45,7 @@ export default function discounts(): IApiStaffDiscounts {
 
   const store = (
     data?: TRequestData<IStoreDiscountRequest, TDiscountRequestWith>
-  ) => {
+  ): TResponseData<IDiscountResource> => {
     const request: IRequest = {
       method: "post",
       path: "/discounts/store",
@@ -80,7 +56,7 @@ export default function discounts(): IApiStaffDiscounts {
 
   const update = (
     data?: TRequestData<IUpdateDiscountRequest, TDiscountRequestWith>
-  ) => {
+  ): TResponseData<IDiscountResource> => {
     const request: IRequest = {
       method: "post",
       path: "/discounts/update",

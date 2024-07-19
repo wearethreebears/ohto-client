@@ -6,23 +6,13 @@ import type {
 } from "../../../types/invoke.types";
 import type { TTrash } from "../../../types/request.types";
 import type {
+  IEditProductAttributeTypeRequest,
   IProductAttributeTypesResource,
+  IStoreProductAttributeTypeRequest,
+  IUpdateProductAttributeTypeRequest,
   TProductAttributeTypeRequestWith,
 } from "../../../types/products/attribute-types.types";
 import { IProductAttributesResource } from "../../../types/products/attributes.types";
-
-export interface IStoreProductAttributeTypeRequest {
-  title: string;
-  slug: string;
-}
-
-export interface IUpdateProductAttributeTypeRequest {
-  id: number;
-  title: string;
-  slug: string;
-}
-
-export interface IEditProductAttributeTypeRequest {}
 
 export interface IApiStaffProductsAttributeTypes {
   store(
@@ -30,21 +20,21 @@ export interface IApiStaffProductsAttributeTypes {
       IStoreProductAttributeTypeRequest,
       TProductAttributeTypeRequestWith
     >
-  ): TResponseData<IProductAttributesResource>;
+  ): TResponseData<IProductAttributeTypesResource>;
   update(
     data?: TRequestData<
       IUpdateProductAttributeTypeRequest,
       TProductAttributeTypeRequestWith
     >
-  ): TResponseData<IProductAttributesResource>;
+  ): TResponseData<IProductAttributeTypesResource>;
   edit(
     slug: string,
     data?: TRequestData<
       IEditProductAttributeTypeRequest,
       TProductAttributeTypeRequestWith
     >
-  ): TResponseData<IProductAttributesResource>;
-  destroy(data: TTrash): TResponseData<IProductAttributesResource>;
+  ): TResponseData<IProductAttributeTypesResource>;
+  destroy(data: TTrash): TResponseData<IProductAttributeTypesResource>;
 }
 
 export default function attributeTypes(): IApiStaffProductsAttributeTypes {
@@ -53,7 +43,7 @@ export default function attributeTypes(): IApiStaffProductsAttributeTypes {
       IStoreProductAttributeTypeRequest,
       TProductAttributeTypeRequestWith
     >
-  ): TResponseData<IProductAttributesResource> => {
+  ): TResponseData<IProductAttributeTypesResource> => {
     const request: IRequest = {
       method: "post",
       path: "/product-attribute-types/store",
@@ -67,7 +57,7 @@ export default function attributeTypes(): IApiStaffProductsAttributeTypes {
       IUpdateProductAttributeTypeRequest,
       TProductAttributeTypeRequestWith
     >
-  ): TResponseData<IProductAttributesResource> => {
+  ): TResponseData<IProductAttributeTypesResource> => {
     const request: IRequest = {
       method: "post",
       path: "/product-attribute-types/update",
@@ -91,7 +81,9 @@ export default function attributeTypes(): IApiStaffProductsAttributeTypes {
     return invoke(request, data, EAPI.STAFF);
   };
 
-  const destroy = (data: TTrash): TResponseData<IProductAttributesResource> => {
+  const destroy = (
+    data: TTrash
+  ): TResponseData<IProductAttributeTypesResource> => {
     const request: IRequest = {
       method: "post",
       path: `/product-attribute-types/destroy`,

@@ -32,4 +32,6 @@ export interface IOrderResource extends IResource {
   user: IUserResource;
 }
 
+export interface IEditOrderRequest {}
+
 export type TOrderCollection = IOrderResource[];
