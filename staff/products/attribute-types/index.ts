@@ -12,7 +12,6 @@ import type {
   IUpdateProductAttributeTypeRequest,
   TProductAttributeTypeRequestWith,
 } from "../../../types/products/attribute-types.types";
-import { IProductAttributesResource } from "../../../types/products/attributes.types";
 
 export interface IApiStaffProductsAttributeTypes {
   store(

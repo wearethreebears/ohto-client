@@ -13,9 +13,9 @@ import type {
 } from "../../types/invoke.types";
 import type { TTrash } from "../../types/request.types";
 import attributeTypes, {
-  IApiStaffProductsAttributeTypes,
+  type IApiStaffProductsAttributeTypes,
 } from "./attribute-types";
-import attributes, { IApiStaffProductsAttributes } from "./attributes";
+import attributes, { type IApiStaffProductsAttributes } from "./attributes";
 
 export interface IApiStaffProducts {
   store(

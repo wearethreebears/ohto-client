@@ -1,12 +1,12 @@
-import type { IRequest } from "../types/invoke.types";
+import type { IRequest, TResponseData } from "../types/invoke.types";
 import invoke from "../invoke";
 
 export interface IApiAdminUser {
-  details(): any;
+  details(): TResponseData<IApiAdminUser>;
 }
 
 export default function user(): IApiAdminUser {
-  const details = () => {
+  const details = (): TResponseData<IApiAdminUser> => {
     const request: IRequest = {
       method: "get",
       path: "/user",

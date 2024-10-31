@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { ohtoConfig } from "../../../ohto.config.ts";
+// import { ohtoConfig } from "../../../ohto.config.ts";
 
 import humps from "humps";
 const { camelizeKeys } = humps;
@@ -11,7 +11,8 @@ import type {
   TResponseData,
 } from "./types/invoke.types";
 
-export const API_PATH = ohtoConfig.client.baseUrl;
+// export const API_PATH = ohtoConfig.client.baseUrl;
+export const API_PATH = "http://127.0.0.1:8000";
 
 export enum EAPI {
   DEFAULT = "/api",
