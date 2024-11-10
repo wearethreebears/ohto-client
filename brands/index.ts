@@ -5,7 +5,7 @@ import type {
   TRequestData,
   TResponseData,
 } from "../types/invoke.types";
-import { TBrandCollection } from "../types/products/brands.types";
+import type { TBrandCollection } from "../types/products/brands.types";
 
 export interface IApiBrands {
   all(

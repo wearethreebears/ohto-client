@@ -8,7 +8,7 @@ import type {
   TBillingModelCollection,
   TBillingModelRequestWith,
 } from "../../types/billing-models.ts/billing-model.types";
-import types, { IApiStaffBillingModelsTypes } from "./types";
+import types, { type IApiStaffBillingModelsTypes } from "./types";
 
 export interface IApiStaffBillingModels {
   all(

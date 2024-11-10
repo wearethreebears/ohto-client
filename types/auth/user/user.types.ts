@@ -6,7 +6,7 @@ import type {
 } from "./address.types";
 
 export interface IUserRequestFilters {
-  search: string;
+  search?: string;
 }
 
 export type TUserRequestWith = (

@@ -1,4 +1,4 @@
-import user, { IApiAdminUser } from "./user";
+import user, { type IApiAdminUser } from "./user";
 
 export interface IApiAdmin {
   user(): IApiAdminUser;

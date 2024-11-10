@@ -1,5 +1,5 @@
 import discountUnitTypes, {
-  IApiDiscountUnitTypes,
+  type IApiDiscountUnitTypes,
 } from "./discount-unit-types";
 
 export interface IApiDiscounts {

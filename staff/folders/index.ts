@@ -1,5 +1,5 @@
 import invoke, { EAPI } from "../../invoke";
-import files, { IApiStaffFoldersFiles } from "./files";
+import files, { type IApiStaffFoldersFiles } from "./files";
 import type {
   IRequest,
   TRequestData,

@@ -1,11 +1,6 @@
-import invoke, { EAPI } from "../../invoke";
-import type {
-  IRequest,
-  TRequestData,
-  TResponseData,
-} from "../../types/invoke.types";
+import type { TRequestData, TResponseData } from "../../types/invoke.types";
 
-import images, { IApiStaffAssetsImages } from "./images";
+import images, { type IApiStaffAssetsImages } from "./images";
 
 import type {
   IAssetResource,

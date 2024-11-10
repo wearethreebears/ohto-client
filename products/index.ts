@@ -1,9 +1,9 @@
 import invoke from "../invoke";
-import attributes, { IApiProductAttributes } from "./attributes";
+import attributes, { type IApiProductAttributes } from "./attributes";
 import attributeTypes, {
   type IApiProductAttributeTypes,
 } from "./attribute-types";
-import variants, { IApiProductVariants } from "./variants";
+import variants, { type IApiProductVariants } from "./variants";
 import type {
   TProductCollection,
   TProductRequestWith,

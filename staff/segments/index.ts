@@ -1,5 +1,5 @@
 import invoke, { EAPI } from "../../invoke";
-import { IEditUserRequest } from "../../types/auth/user/user.types";
+import { type IEditUserRequest } from "../../types/auth/user/user.types";
 import type {
   IRequest,
   TRequestData,

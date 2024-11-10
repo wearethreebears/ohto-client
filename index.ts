@@ -1,16 +1,16 @@
 import axios from "axios";
-import auth, { IApiAuth } from "./auth";
-import admin, { IApiAdmin } from "./admin";
-import brands, { IApiBrands } from "./brands";
-import discounts, { IApiDiscounts } from "./discounts";
-import chargeTypes, { IApiChargeTypes } from "./charge-types";
+import auth, { type IApiAuth } from "./auth";
+import admin, { type IApiAdmin } from "./admin";
+import brands, { type IApiBrands } from "./brands";
+import discounts, { type IApiDiscounts } from "./discounts";
+import chargeTypes, { type IApiChargeTypes } from "./charge-types";
 import eligibleUserGroups, {
-  IApiEligibleUserGroups,
+  type IApiEligibleUserGroups,
 } from "./eligible-user-groups";
 import products, { type IApiProducts } from "./products";
-import files, { IApiFiles } from "./files";
-import staff, { IApiStaff } from "./staff";
-import sanctum, { IApiSanctum } from "./sanctum";
+import files, { type IApiFiles } from "./files";
+import staff, { type IApiStaff } from "./staff";
+import sanctum, { type IApiSanctum } from "./sanctum";
 
 axios.defaults.withCredentials = true;
 
