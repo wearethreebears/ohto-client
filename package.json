@@ -1,11 +1,25 @@
 {
-    "name": "@ohto/client",
-    "version": "0.1.0",
-    "author": "Liam Hall",
-    "license": "MIT",
-    "dependencies": {
-        "@types/humps": "^2.0.3",
-        "axios": "^1.4.0",
-        "humps": "^2.0.1"
-    }
+  "name": "@ohto/client",
+  "version": "0.1.0",
+  "author": "Liam Hall",
+  "license": "MIT",
+  "dependencies": {
+    "@types/humps": "^2.0.3",
+    "axios": "^1.4.0",
+    "humps": "^2.0.1"
+  },
+  "description": "Ohto commerce api client",
+  "main": "index.ts",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wearethreebears/ohto-client.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wearethreebears/ohto-client/issues"
+  },
+  "homepage": "https://github.com/wearethreebears/ohto-client#readme"
 }
