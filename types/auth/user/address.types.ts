@@ -1,6 +1,6 @@
 import type { IResource } from "../../response.types";
 
-interface IBaseAddressResource extends IResource {
+export interface IBaseAddressResource extends IResource {
   firstName: string;
   lastName: string;
   phone: string;

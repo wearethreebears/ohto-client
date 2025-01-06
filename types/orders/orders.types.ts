@@ -19,19 +19,34 @@ export type TOrderRequestWith = (
 )[];
 
 export interface IOrderResource extends IResource {
-  billingDetails: IBillingAddressResource;
-  shippingDetails: IShippingAddressResource;
+  billingDetails?: IBillingAddressResource;
+  shippingDetails?: IShippingAddressResource;
   isBillingDetailsEqualToShippingDetails: boolean;
-  orderLines: TOrderLineCollection;
-  orderChannel: IOrderChannelResource;
+  orderLines?: TOrderLineCollection;
+  orderChannel?: IOrderChannelResource;
   subtotal: number;
   total: number;
   discount: number;
   creditUsed: number;
   createdAt: string;
-  user: IUserResource;
+  user?: IUserResource;
 }
 
 export interface IEditOrderRequest {}
 
 export type TOrderCollection = IOrderResource[];
+
+interface IStoreOrderRequestVariants {
+  id: number;
+  quantity: number;
+}
+
+export enum OrderChannel {
+  ONLINE_STORE = 1,
+  POINT_OF_SALE = 2,
+}
+
+export interface IStoreOrderRequest {
+  channel: OrderChannel;
+  variants: IStoreOrderRequestVariants[];
+}

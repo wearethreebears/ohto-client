@@ -24,7 +24,17 @@ export interface IUserResource extends IResource {
   orders?: TOrderCollection;
   shippingAddresses?: TShippingAddressCollection;
   billingAddresses?: TBillingAddressCollection;
-  createdAt: string;
+  createdAt?: string;
 }
 
 export type TUserCollection = IUserResource[];
+
+export interface IUserLoginRequest {
+  email: string;
+  password: string;
+}
+
+export interface IUserLoginResponse {
+  token: string;
+  user: IUserResource;
+}

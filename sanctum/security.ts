@@ -1,5 +1,5 @@
 import type { IRequest, TResponseData } from "../types/invoke.types";
-import invoke from "../invoke";
+import invoke, { EAPI } from "../invoke";
 
 export interface IApiSanctumSecurity {
   csrf(): TResponseData<any>;
@@ -12,7 +12,7 @@ export default function security(): IApiSanctumSecurity {
       path: "/sanctum/csrf-cookie",
     };
 
-    return invoke(request);
+    return invoke(request, undefined, EAPI.SANCTUM);
   };
 
   return {

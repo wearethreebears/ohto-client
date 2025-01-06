@@ -87,4 +87,6 @@ export interface IUpdateProductRequest {
 
 export interface IEditProductRequest {}
 
+export interface IShowProductRequest {}
+
 export type TProductCollection = IProductResource[];

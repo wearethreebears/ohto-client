@@ -1,16 +1,20 @@
 import axios from "axios";
 import auth, { type IApiAuth } from "./auth";
 import admin, { type IApiAdmin } from "./admin";
+import user, { type IApiUser } from "./user";
 import brands, { type IApiBrands } from "./brands";
 import discounts, { type IApiDiscounts } from "./discounts";
 import chargeTypes, { type IApiChargeTypes } from "./charge-types";
+import checkout from "./checkout";
 import eligibleUserGroups, {
   type IApiEligibleUserGroups,
 } from "./eligible-user-groups";
 import products, { type IApiProducts } from "./products";
+import orders, { type IApiOrders } from "./orders";
 import files, { type IApiFiles } from "./files";
 import staff, { type IApiStaff } from "./staff";
 import sanctum, { type IApiSanctum } from "./sanctum";
+import hasFullAccount, { type IApiHasFullAccount } from "./has-full-account";
 
 axios.defaults.withCredentials = true;
 
@@ -30,6 +34,10 @@ interface IApi {
   sanctum(): IApiSanctum;
   staff(): IApiStaff;
   files(): IApiFiles;
+  orders(): IApiOrders;
+  checkout(): any;
+  hasFullAccount(): IApiHasFullAccount;
+  user(): IApiUser;
 }
 
 export default function api(): IApi {
@@ -44,6 +52,10 @@ export default function api(): IApi {
     products,
     sanctum,
     staff,
+    user,
     files,
+    checkout,
+    orders,
+    hasFullAccount,
   };
 }

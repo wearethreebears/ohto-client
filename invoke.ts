@@ -17,6 +17,8 @@ export const API_PATH = "http://127.0.0.1:8000";
 export enum EAPI {
   DEFAULT = "/api",
   STAFF = "/api/staff",
+  USER = "/api/user",
+  SANCTUM = "",
 }
 
 axios.defaults.withCredentials = true;
