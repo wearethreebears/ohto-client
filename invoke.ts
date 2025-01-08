@@ -12,7 +12,7 @@ import type {
 } from "./types/invoke.types";
 
 // export const API_PATH = ohtoConfig.client.baseUrl;
-export const API_PATH = "http://127.0.0.1:8000";
+export const API_PATH = "https://api.hereticstore.com";
 
 export enum EAPI {
   DEFAULT = "/api",
