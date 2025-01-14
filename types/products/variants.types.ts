@@ -25,6 +25,9 @@ export interface IProductVariantResource extends IResource {
   active?: boolean;
   product?: IProductResource;
   stripeId?: string;
+  gtin?: string;
+  vendorSku: string;
+  vendorPrice?: number;
   billingModelType?: IBillingModelTypeResource;
   billingModel?: IBillingModelResource;
   billingPeriod?: IBillingPeriodResource;
