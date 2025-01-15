@@ -1,8 +1,6 @@
 import axios from "axios";
 
-import { ohtoConfig } from "@ohtoConfig";
-
-const { client } = ohtoConfig();
+import { ohtoConfig } from "../../../ohto.config";
 
 import humps from "humps";
 const { camelizeKeys } = humps;
@@ -14,7 +12,7 @@ import type {
 } from "./types/invoke.types";
 
 // export const API_PATH = ohtoConfig.client.baseUrl;
-export const API_PATH = client.baseUrl;
+export const API_PATH = ohtoConfig.client.baseUrl;
 
 export enum EAPI {
   DEFAULT = "/api",
