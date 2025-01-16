@@ -1,9 +1,3 @@
-import axios from "axios";
-
-import { ohtoConfig } from "@ohtoConfig";
-
-const { client } = ohtoConfig();
-
 import humps from "humps";
 const { camelizeKeys } = humps;
 import type {
@@ -14,7 +8,7 @@ import type {
 } from "./types/invoke.types";
 
 // export const API_PATH = ohtoConfig.client.baseUrl;
-export const API_PATH = client.baseUrl;
+export const API_PATH = ohtoConfig.client.baseUrl;
 
 export enum EAPI {
   DEFAULT = "/api",
@@ -31,7 +25,7 @@ export const createQueryString = (queryData?: IQueryData | string): string => {
 
   if (typeof queryData === "string") return `${queryString}${queryData}`;
 
-  console.log(queryData);
+  console.log("TEST TEST", queryData);
 
   Object.entries(queryData).forEach(([key, value], index) => {
     index > 0 && (queryString += "&");
