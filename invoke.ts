@@ -1,4 +1,7 @@
 import humps from "humps";
+import axios from "axios";
+import { useNuxtApp } from "#app";
+
 const { camelizeKeys } = humps;
 import type {
   IRequest,
@@ -6,9 +9,6 @@ import type {
   IQueryData,
   TResponseData,
 } from "./types/invoke.types";
-
-// export const API_PATH = ohtoConfig.client.baseUrl;
-export const API_PATH = ohtoConfig.client.baseUrl;
 
 export enum EAPI {
   DEFAULT = "/api",
@@ -24,8 +24,6 @@ export const createQueryString = (queryData?: IQueryData | string): string => {
   let queryString = "?";
 
   if (typeof queryData === "string") return `${queryString}${queryData}`;
-
-  console.log("TEST TEST", queryData);
 
   Object.entries(queryData).forEach(([key, value], index) => {
     index > 0 && (queryString += "&");
@@ -43,7 +41,8 @@ export default function invoke(
   api: EAPI = EAPI.DEFAULT,
   config = {}
 ): TResponseData<any> {
-  const concatenatedRequestPath = `${API_PATH}${api}${request.path}`;
+  const { $ohtoConfig } = useNuxtApp();
+  const concatenatedRequestPath = `${$ohtoConfig.client.baseUrl}${api}${request.path}`;
   if (["get"].includes(request.method)) {
     return axios
       .get(

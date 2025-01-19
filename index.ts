@@ -17,6 +17,7 @@ import sanctum, { type IApiSanctum } from "./sanctum";
 import hasFullAccount, { type IApiHasFullAccount } from "./has-full-account";
 
 axios.defaults.withCredentials = true;
+axios.defaults.withXSRFToken = true;
 
 const setToken = (token: string | null): void => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
