@@ -22,6 +22,7 @@ export interface IApiStaffOrders {
     data?: TRequestData<IEditOrderRequest, TOrderRequestWith>
   ): TResponseData<IOrderResource>;
   destroy(data: TTrash): TResponseData<IOrderResource>;
+  dispatch(id: string): TResponseData<IOrderResource>;
 }
 
 export default function orders(): IApiStaffOrders {
@@ -57,9 +58,19 @@ export default function orders(): IApiStaffOrders {
     return invoke(request, data, EAPI.STAFF);
   };
 
+  const dispatch = (id: string): TResponseData<IOrderResource> => {
+    const request: IRequest = {
+      method: "post",
+      path: `/orders/status/dispatch/${id}`,
+    };
+
+    return invoke(request, undefined, EAPI.STAFF);
+  };
+
   return {
     all,
     destroy,
     edit,
+    dispatch,
   };
 }
