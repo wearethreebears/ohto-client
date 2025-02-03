@@ -10,6 +10,7 @@ import eligibleUserGroups, {
   type IApiEligibleUserGroups,
 } from "./eligible-user-groups";
 import products, { type IApiProducts } from "./products";
+import productFilters, { type IApiProductFilters } from "./product-filters";
 import orders, { type IApiOrders } from "./orders";
 import files, { type IApiFiles } from "./files";
 import staff, { type IApiStaff } from "./staff";
@@ -32,6 +33,7 @@ interface IApi {
   eligibleUserGroups(): IApiEligibleUserGroups;
   chargeTypes(): IApiChargeTypes;
   products(): IApiProducts;
+  productFilters(): IApiProductFilters;
   sanctum(): IApiSanctum;
   staff(): IApiStaff;
   files(): IApiFiles;
@@ -51,6 +53,7 @@ export default function api(): IApi {
     eligibleUserGroups,
     chargeTypes,
     products,
+    productFilters,
     sanctum,
     staff,
     user,
