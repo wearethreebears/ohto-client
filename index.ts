@@ -16,6 +16,9 @@ import files, { type IApiFiles } from "./files";
 import staff, { type IApiStaff } from "./staff";
 import sanctum, { type IApiSanctum } from "./sanctum";
 import hasFullAccount, { type IApiHasFullAccount } from "./has-full-account";
+import productCollections, {
+  type IApiProductCollections,
+} from "./product-collections";
 
 axios.defaults.withCredentials = true;
 axios.defaults.withXSRFToken = true;
@@ -34,6 +37,7 @@ interface IApi {
   chargeTypes(): IApiChargeTypes;
   products(): IApiProducts;
   productFilters(): IApiProductFilters;
+  productCollections(): IApiProductCollections;
   sanctum(): IApiSanctum;
   staff(): IApiStaff;
   files(): IApiFiles;
@@ -54,6 +58,7 @@ export default function api(): IApi {
     chargeTypes,
     products,
     productFilters,
+    productCollections,
     sanctum,
     staff,
     user,
