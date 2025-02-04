@@ -1,7 +1,7 @@
 import { TProductCollection } from "../products/index.types";
 import type { IResource } from "../response.types";
 
-export type TProductCollectionRequestWith = "products"[];
+export type TProductCollectionRequestWith = ("products", "products.mediaFiles")[];
 
 export interface IProductCollectionResource extends IResource {
   title: string;
