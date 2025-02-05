@@ -4,6 +4,7 @@ import attributeTypes, {
   type IApiProductAttributeTypes,
 } from "./attribute-types";
 import variants, { type IApiProductVariants } from "./variants";
+import related, { type IApiRelatedProducts } from "./related";
 import type {
   IProductResource,
   IShowProductRequest,
@@ -27,6 +28,7 @@ export interface IApiProducts {
   attributes(): IApiProductAttributes;
   attributeTypes(): IApiProductAttributeTypes;
   variants(): IApiProductVariants;
+  related(): IApiRelatedProducts;
 }
 
 export default function products(): IApiProducts {
@@ -59,5 +61,6 @@ export default function products(): IApiProducts {
     attributes,
     attributeTypes,
     variants,
+    related,
   };
 }
