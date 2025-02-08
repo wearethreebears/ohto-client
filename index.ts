@@ -19,6 +19,7 @@ import hasFullAccount, { type IApiHasFullAccount } from "./has-full-account";
 import productCollections, {
   type IApiProductCollections,
 } from "./product-collections";
+import delivery, { type IApiDelivery } from "./delivery";
 
 axios.defaults.withCredentials = true;
 axios.defaults.withXSRFToken = true;
@@ -45,6 +46,7 @@ interface IApi {
   checkout(): any;
   hasFullAccount(): IApiHasFullAccount;
   user(): IApiUser;
+  delivery(): IApiDelivery;
 }
 
 export default function api(): IApi {
@@ -66,5 +68,6 @@ export default function api(): IApi {
     checkout,
     orders,
     hasFullAccount,
+    delivery,
   };
 }

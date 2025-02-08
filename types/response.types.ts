@@ -5,6 +5,8 @@ export interface IResource {
   id: number;
 }
 
+export type TCollection = IResource[];
+
 interface IPaginationLink {
   active: boolean;
   label: string;

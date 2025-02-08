@@ -1,6 +1,6 @@
 {
   "name": "@ohto/client",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "author": "Liam Hall",
   "license": "MIT",
   "dependencies": {
