@@ -12,11 +12,19 @@ export type TOrderRequestWith = (
   | "lines"
   | "orderLines.variant"
   | "orderLines.productVariant.product"
+  | "orderLines.productVariant.product.mediaFiles"
   | "orderLines.productVariant.attributes"
   | "orderChannel"
   | "billingDetail"
   | "shippingDetail"
 )[];
+
+export enum EOrderStatus {
+  PROCESSING = "PROCESSING",
+  DISPATCHED = "DISPATCHED",
+  CANCELLED = "CANCELLED",
+  REFUNDED = "REFUNDED",
+}
 
 export interface IOrderResource extends IResource {
   billingDetails?: IBillingAddressResource;
@@ -30,9 +38,22 @@ export interface IOrderResource extends IResource {
   creditUsed: number;
   createdAt: string;
   user?: IUserResource;
+  status: EOrderStatus;
 }
 
+export interface IGuestOrderResource extends IOrderResource {
+  token: string;
+}
+
+export const isGuestOrderResource = (
+  orderResource: IOrderResource | IGuestOrderResource
+): orderResource is IGuestOrderResource => {
+  return !!(orderResource as IGuestOrderResource).token;
+};
+
 export interface IEditOrderRequest {}
+
+export interface IShowOrderRequest {}
 
 export type TOrderCollection = IOrderResource[];
 
