@@ -1,6 +1,6 @@
 import invoke from "../../../invoke";
-import { IShowDeliveryDeterminedOptionGroupRequest } from "../../../types/delivery/options/groups/determined-option-groups/determined-option-groups.types";
-import { IDeliveryOptionGroupResource } from "../../../types/delivery/options/groups/option-group.types";
+import type { IShowDeliveryDeterminedOptionGroupRequest } from "../../../types/delivery/options/groups/determined-option-groups/determined-option-groups.types";
+import type { IDeliveryOptionGroupResource } from "../../../types/delivery/options/groups/option-group.types";
 
 import type {
   IRequest,
@@ -14,10 +14,10 @@ export interface IApiDeliveryDeterminedOptionGroups {
   ): TResponseData<IDeliveryOptionGroupResource>;
 }
 
-export default function discountUnitTypes(): IApiDeliveryDeterminedOptionGroups {
+export default function determinedOptionGroups(): IApiDeliveryDeterminedOptionGroups {
   const show = (
     data?: TRequestData<IShowDeliveryDeterminedOptionGroupRequest>
-  ) => {
+  ): TResponseData<IDeliveryOptionGroupResource> => {
     const request: IRequest = {
       method: "post",
       path: "/delivery/option-groups/determined-delivery-option-group",
