@@ -11,27 +11,19 @@ import type {
 import shippingDetail, { type IApiUserShippingDetail } from "./shipping-detail";
 import billingDetail, { type IApiUserBillingDetail } from "./billing-detail";
 import orders, { type IApiUserOrders } from "./orders";
+import password, { type IApiUserPassword } from "./password";
 
 export interface IApiUser {
-  details(): TResponseData<IUserResource>;
   shippingDetail(): IApiUserShippingDetail;
   billingDetail(): IApiUserBillingDetail;
   orders(): IApiUserOrders;
+  password(): IApiUserPassword;
   show(
     data?: TRequestData<object, TUserRequestWith>
   ): TResponseData<IUserResource>;
 }
 
 export default function user(): IApiUser {
-  const details = (): TResponseData<IUserResource> => {
-    const request: IRequest = {
-      method: "get",
-      path: "/user-details",
-    };
-
-    return invoke(request);
-  };
-
   const show = (
     data?: TRequestData<object, TUserRequestWith>
   ): TResponseData<IUserResource> => {
@@ -44,10 +36,10 @@ export default function user(): IApiUser {
   };
 
   return {
-    details,
     shippingDetail,
     billingDetail,
     orders,
     show,
+    password,
   };
 }

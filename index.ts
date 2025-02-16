@@ -3,6 +3,7 @@ import auth, { type IApiAuth } from "./auth";
 import admin, { type IApiAdmin } from "./admin";
 import user, { type IApiUser } from "./user";
 import brands, { type IApiBrands } from "./brands";
+import basket, { type IApiBasket } from "./basket";
 import discounts, { type IApiDiscounts } from "./discounts";
 import chargeTypes, { type IApiChargeTypes } from "./charge-types";
 import checkout from "./checkout";
@@ -32,6 +33,7 @@ interface IApi {
   setToken(token: string | null): void;
   admin(): IApiAdmin;
   auth(): IApiAuth;
+  basket(): IApiBasket;
   brands(): IApiBrands;
   discounts(): IApiDiscounts;
   eligibleUserGroups(): IApiEligibleUserGroups;
@@ -54,6 +56,7 @@ export default function api(): IApi {
     setToken,
     admin,
     auth,
+    basket,
     brands,
     discounts,
     eligibleUserGroups,
