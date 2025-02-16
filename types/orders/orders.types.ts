@@ -33,6 +33,7 @@ export interface IOrderResource extends IResource {
   orderLines?: TOrderLineCollection;
   orderChannel?: IOrderChannelResource;
   subtotal: number;
+  deliverySubtotal: number;
   total: number;
   discount: number;
   creditUsed: number;
@@ -70,4 +71,5 @@ export enum OrderChannel {
 export interface IStoreOrderRequest {
   channel: OrderChannel;
   variants: IStoreOrderRequestVariants[];
+  deliveryOption?: number;
 }
