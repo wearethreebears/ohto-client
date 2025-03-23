@@ -5,12 +5,16 @@ import type {
   TRequestData,
   TResponseData,
 } from "../types/invoke.types";
-import type { TBrandCollection } from "../types/products/brands.types";
+import type {
+  IBrandResource,
+  TBrandCollection,
+} from "../types/products/brands.types";
 
 export interface IApiBrands {
   all(
     data?: TRequestData<object, TProductRequestWith>
   ): TResponseData<TBrandCollection>;
+  show(slug: string): TResponseData<IBrandResource>;
 }
 
 export default function brands(): IApiBrands {
@@ -25,7 +29,17 @@ export default function brands(): IApiBrands {
     return invoke(request, data);
   };
 
+  const show = (slug: string): TResponseData<IBrandResource> => {
+    const request: IRequest = {
+      method: "get",
+      path: `/brands/${slug}`,
+    };
+
+    return invoke(request, undefined);
+  };
+
   return {
     all,
+    show,
   };
 }

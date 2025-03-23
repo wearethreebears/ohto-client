@@ -6,6 +6,7 @@ import attributeTypes, {
 import variants, { type IApiProductVariants } from "./variants";
 import related, { type IApiRelatedProducts } from "./related";
 import type {
+  IIndexProductRequest,
   IProductResource,
   IShowProductRequest,
   TProductCollection,
@@ -19,7 +20,7 @@ import type {
 
 export interface IApiProducts {
   all(
-    data?: TRequestData<object, TProductRequestWith>
+    data?: TRequestData<IIndexProductRequest, TProductRequestWith>
   ): TResponseData<TProductCollection>;
   show(
     slug: string,
@@ -33,7 +34,7 @@ export interface IApiProducts {
 
 export default function products(): IApiProducts {
   const all = (
-    data?: TRequestData<object, TProductRequestWith>
+    data?: TRequestData<IIndexProductRequest, TProductRequestWith>
   ): TResponseData<TProductCollection> => {
     const request: IRequest = {
       method: "get",
