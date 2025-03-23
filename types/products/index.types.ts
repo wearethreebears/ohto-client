@@ -87,6 +87,10 @@ export interface IUpdateProductRequest {
 
 export interface IEditProductRequest {}
 
+export interface IIndexProductRequest {
+  brand?: string | string[];
+}
+
 export interface IShowProductRequest {}
 
 export type TProductCollection = IProductResource[];
