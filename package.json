@@ -1,9 +1,10 @@
 {
   "name": "@ohto/client",
-  "version": "0.1.19",
+  "version": "0.1.20",
   "author": "Liam Hall",
   "license": "MIT",
   "dependencies": {
+    "@tiptap/core": "^2.11.7",
     "@types/humps": "^2.0.3",
     "axios": "^1.4.0",
     "humps": "^2.0.1"
