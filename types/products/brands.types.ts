@@ -1,11 +1,12 @@
 import type { IResource } from "../response.types";
+import type { JSONContent } from "@tiptap/core";
 
 export type TBrandRequestWith = [];
 
 export interface IBrandResource extends IResource {
   title: string;
   slug: string;
-  description?: string;
+  description?: JSONContent;
 }
 
 export interface IStoreBrandRequest {

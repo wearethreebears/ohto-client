@@ -1,6 +1,7 @@
 import axios from "axios";
 import auth, { type IApiAuth } from "./auth";
 import admin, { type IApiAdmin } from "./admin";
+import blogs, { type IApiBlogs } from "./blogs";
 import user, { type IApiUser } from "./user";
 import brands, { type IApiBrands } from "./brands";
 import basket, { type IApiBasket } from "./basket";
@@ -34,6 +35,7 @@ interface IApi {
   admin(): IApiAdmin;
   auth(): IApiAuth;
   basket(): IApiBasket;
+  blogs(): IApiBlogs;
   brands(): IApiBrands;
   discounts(): IApiDiscounts;
   eligibleUserGroups(): IApiEligibleUserGroups;
@@ -57,6 +59,7 @@ export default function api(): IApi {
     admin,
     auth,
     basket,
+    blogs,
     brands,
     discounts,
     eligibleUserGroups,
