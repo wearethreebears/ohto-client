@@ -1,4 +1,4 @@
-import { camelizeKeys } from "humps";
+import humps from "humps";
 import axios from "axios";
 import { useNuxtApp } from "#app";
 
@@ -48,11 +48,11 @@ export default function invoke(
         `${concatenatedRequestPath}${createQueryString(requestData)}`,
         config
       )
-      .then(({ data }) => camelizeKeys(data)) as TResponseData<any>;
+      .then(({ data }) => humps.camelizeKeys(data)) as TResponseData<any>;
   } else if (["post"].includes(request.method)) {
     return axios
       .post(concatenatedRequestPath, requestData, config)
-      .then(({ data }) => camelizeKeys(data)) as TResponseData<any>;
+      .then(({ data }) => humps.camelizeKeys(data)) as TResponseData<any>;
   } else if (["image"].includes(request.method)) {
     return axios
       .get(
@@ -63,6 +63,6 @@ export default function invoke(
   } else {
     return axios
       .post(concatenatedRequestPath, requestData, config)
-      .then(({ data }) => camelizeKeys(data)) as TResponseData<any>;
+      .then(({ data }) => humps.camelizeKeys(data)) as TResponseData<any>;
   }
 }
