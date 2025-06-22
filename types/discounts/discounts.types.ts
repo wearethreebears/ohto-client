@@ -19,6 +19,19 @@ export interface IStoreDiscountRequest {
   chargeType?: number;
 }
 
+export interface IStoreDiscountRequest {
+  code?: string;
+  eligibleUserGroups?: number;
+  eligibleUsers?: number[];
+  eligibleSegments?: number[];
+  discountUnit?: number;
+  discountUnitType?: number;
+  totalUsesAllowed?: number;
+  totalUsesAllowedPerUser?: number;
+  autoApply?: boolean;
+  chargeType?: number;
+}
+
 export interface IUpdateDiscountRequest {
   id: number;
   code: string;

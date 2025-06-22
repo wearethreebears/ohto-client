@@ -1,8 +1,7 @@
-import humps from "humps";
+import { camelizeKeys } from "humps";
 import axios from "axios";
 import { useNuxtApp } from "#app";
 
-const { camelizeKeys } = humps;
 import type {
   IRequest,
   TRequestData,

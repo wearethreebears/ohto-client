@@ -1,6 +1,7 @@
 import invoke, { EAPI } from "../../invoke";
 import type {
   IRequest,
+  TFilters,
   TRequestData,
   TResponseData,
 } from "../../types/invoke.types";
@@ -8,6 +9,7 @@ import type { TTrash } from "../../types/request.types";
 
 import type {
   IEditOrderRequest,
+  IOrderFilters,
   IOrderResource,
   TOrderCollection,
   TOrderRequestWith,
@@ -15,7 +17,7 @@ import type {
 
 export interface IApiStaffOrders {
   all(
-    data?: TRequestData<object, TOrderRequestWith>
+    data?: TRequestData<object, TOrderRequestWith, TFilters<IOrderFilters>>
   ): TResponseData<TOrderCollection>;
   edit(
     id: string,

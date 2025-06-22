@@ -1,3 +1,4 @@
+import { JSONContent } from "@tiptap/core";
 import type {
   IBillingModelResource,
   IBillingModelTypeResource,
@@ -50,6 +51,7 @@ export type TProductMediaFileCollection = IProductMediaFileResource[];
 export interface IProductResource extends IResource {
   title: string;
   slug: string;
+  description?: JSONContent;
   brand?: IBrandResource;
   attributes?: TProductAttributesCollection;
   attributeTypes?: TProductAttributeTypesCollection;
@@ -65,6 +67,7 @@ export interface IProductResource extends IResource {
 export interface IStoreProductRequest {
   title: string;
   slug: string;
+  description?: string;
   brand?: number;
   status?: EProductStatus;
   productAttributeTypes?: number[];
@@ -77,6 +80,7 @@ export interface IUpdateProductRequest {
   id: number;
   title: string;
   slug: string;
+  description?: string;
   brand?: number;
   status?: EProductStatus;
   productAttributeTypes?: number[];

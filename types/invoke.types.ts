@@ -29,6 +29,10 @@ export type TRequestData<
     plusTrashed?: boolean;
   };
 
+export type TFilters<T extends object> = T & {};
+
+export type TFilterSort = "asc" | "desc";
+
 export type TResponseData<T extends {}> = Promise<{
   data: T;
   meta?: IPagination;

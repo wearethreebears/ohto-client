@@ -7,7 +7,7 @@ import brands, { type IApiBrands } from "./brands";
 import basket, { type IApiBasket } from "./basket";
 import discounts, { type IApiDiscounts } from "./discounts";
 import chargeTypes, { type IApiChargeTypes } from "./charge-types";
-import checkout from "./checkout";
+import checkout, { IApiCheckout } from "./checkout";
 import eligibleUserGroups, {
   type IApiEligibleUserGroups,
 } from "./eligible-user-groups";
@@ -47,7 +47,7 @@ interface IApi {
   staff(): IApiStaff;
   files(): IApiFiles;
   orders(): IApiOrders;
-  checkout(): any;
+  checkout(): IApiCheckout;
   hasFullAccount(): IApiHasFullAccount;
   user(): IApiUser;
   delivery(): IApiDelivery;

@@ -6,6 +6,14 @@ import type {
   IShippingAddressResource,
 } from "../auth/user/address.types";
 import type { IUserResource } from "../auth/user/user.types";
+import { TFilterSort } from "../invoke.types";
+
+type TOrderFilterOrderBy = "id";
+
+export interface IOrderFilters {
+  orderBy?: TOrderFilterOrderBy;
+  sort?: TFilterSort;
+}
 
 export type TOrderRequestWith = (
   | "user"
@@ -36,6 +44,7 @@ export interface IOrderResource extends IResource {
   deliverySubtotal: number;
   total: number;
   discount: number;
+  deliveryDiscount: number;
   creditUsed: number;
   createdAt: string;
   user?: IUserResource;
