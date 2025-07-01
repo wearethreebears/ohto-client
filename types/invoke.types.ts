@@ -24,6 +24,7 @@ export type TRequestData<
   Filters extends {} = {}
 > = T &
   Filters & {
+    page?: number;
     with?: With;
     withPlusTrashed?: With;
     plusTrashed?: boolean;
