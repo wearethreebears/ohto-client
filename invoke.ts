@@ -19,7 +19,7 @@ export enum EAPI {
 axios.defaults.withCredentials = true;
 
 const getResponse = (response: AxiosResponse<any, any>): TResponseData<any> => {
-  const camelized = camelcaseKeys(response.data);
+  const camelized = camelcaseKeys(response.data, { deep: true });
 
   if (response.status === 422 || camelized.errors) {
     // Simulate an error so it goes to `catch(...)`
