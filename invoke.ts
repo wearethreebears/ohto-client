@@ -1,4 +1,4 @@
-import { camelizeKeys } from "humps";
+import * as humps from "humps";
 import axios, { type AxiosResponse } from "axios";
 import { useNuxtApp } from "#app";
 
@@ -19,7 +19,7 @@ export enum EAPI {
 axios.defaults.withCredentials = true;
 
 const getResponse = (response: AxiosResponse<any, any>): TResponseData<any> => {
-  const camelized = camelizeKeys(response.data);
+  const camelized = humps.camelizeKeys(response.data);
 
   if (response.status === 422 || camelized.errors) {
     // Simulate an error so it goes to `catch(...)`
