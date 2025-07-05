@@ -7,7 +7,7 @@ import brands, { type IApiBrands } from "./brands";
 import basket, { type IApiBasket } from "./basket";
 import discounts, { type IApiDiscounts } from "./discounts";
 import chargeTypes, { type IApiChargeTypes } from "./charge-types";
-import checkout, { IApiCheckout } from "./checkout";
+import checkout, { type IApiCheckout } from "./checkout";
 import eligibleUserGroups, {
   type IApiEligibleUserGroups,
 } from "./eligible-user-groups";
