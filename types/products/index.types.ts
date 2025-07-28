@@ -1,4 +1,4 @@
-import { JSONContent } from "@tiptap/core";
+import type { JSONContent } from "@tiptap/core";
 import type {
   IBillingModelResource,
   IBillingModelTypeResource,
@@ -93,6 +93,7 @@ export interface IEditProductRequest {}
 
 export interface IIndexProductRequest {
   brand?: string | string[];
+  search?: string;
 }
 
 export interface IShowProductRequest {}

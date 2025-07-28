@@ -1,5 +1,8 @@
 import brands, { type IApiStaffBrands } from "./brands";
 import products, { type IApiStaffProducts } from "./products";
+import productCollections, {
+  type IApiStaffProductCollections,
+} from "./product-collections";
 import orders, { type IApiStaffOrders } from "./orders";
 import customers, { type IApiStaffCustomers } from "./customers";
 import discounts, { type IApiStaffDiscounts } from "./discounts";
@@ -14,6 +17,7 @@ import billingPeriods, {
 export interface IApiStaff {
   brands(): IApiStaffBrands;
   products(): IApiStaffProducts;
+  productCollections(): IApiStaffProductCollections;
   orders(): IApiStaffOrders;
   customers(): IApiStaffCustomers;
   segments(): IApiStaffSegments;
@@ -28,6 +32,7 @@ export default function staff(): IApiStaff {
   return {
     brands,
     products,
+    productCollections,
     orders,
     customers,
     segments,
