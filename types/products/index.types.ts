@@ -14,6 +14,7 @@ import type {
   IStoreVariantRequest,
   TProductVariantCollection,
 } from "./variants.types";
+import { TProductCategoryCollection } from "../product-categories/index.types";
 
 export type TProductRequestWith = (
   | "brand"
@@ -27,6 +28,7 @@ export type TProductRequestWith = (
   | "attributeTypes.attributes"
   | "attributeTypes.attributes.type"
   | "mediaFiles"
+  | "categories"
 )[];
 
 export enum EProductStatus {
@@ -62,14 +64,16 @@ export interface IProductResource extends IResource {
   billingModelType?: IBillingModelTypeResource;
   billingModel?: IBillingModelResource;
   billingPeriod?: IBillingPeriodResource;
+  categories?: TProductCategoryCollection;
 }
 
 export interface IStoreProductRequest {
   title: string;
   slug: string;
-  description?: string;
+  description?: string | JSONContent;
   brand?: number;
   status?: EProductStatus;
+  productCategories?: number[];
   productAttributeTypes?: number[];
   productAttributes?: number[];
   productVariants?: IStoreVariantRequest[];
@@ -80,7 +84,8 @@ export interface IUpdateProductRequest {
   id: number;
   title: string;
   slug: string;
-  description?: string;
+  productCategories?: number[];
+  description?: string | JSONContent;
   brand?: number;
   status?: EProductStatus;
   productAttributeTypes?: number[];

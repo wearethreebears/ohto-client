@@ -13,11 +13,15 @@ import billingModels, { type IApiStaffBillingModels } from "./billing-models";
 import billingPeriods, {
   type IApiStaffBillingPeriods,
 } from "./billing-periods";
+import productCategories, {
+  IApiStaffProductCategories,
+} from "./product-categories";
 
 export interface IApiStaff {
   brands(): IApiStaffBrands;
   products(): IApiStaffProducts;
   productCollections(): IApiStaffProductCollections;
+  productCategories(): IApiStaffProductCategories;
   orders(): IApiStaffOrders;
   customers(): IApiStaffCustomers;
   segments(): IApiStaffSegments;
@@ -32,6 +36,7 @@ export default function staff(): IApiStaff {
   return {
     brands,
     products,
+    productCategories,
     productCollections,
     orders,
     customers,

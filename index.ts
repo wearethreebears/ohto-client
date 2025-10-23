@@ -22,6 +22,7 @@ import productCollections, {
   type IApiProductCollections,
 } from "./product-collections";
 import delivery, { type IApiDelivery } from "./delivery";
+import productCategories, { IApiProductCategories } from "./product-categories";
 
 axios.defaults.withCredentials = true;
 axios.defaults.withXSRFToken = true;
@@ -43,6 +44,7 @@ interface IApi {
   products(): IApiProducts;
   productFilters(): IApiProductFilters;
   productCollections(): IApiProductCollections;
+  productCategories(): IApiProductCategories;
   sanctum(): IApiSanctum;
   staff(): IApiStaff;
   files(): IApiFiles;
@@ -65,6 +67,7 @@ export default function api(): IApi {
     eligibleUserGroups,
     chargeTypes,
     products,
+    productCategories,
     productFilters,
     productCollections,
     sanctum,
