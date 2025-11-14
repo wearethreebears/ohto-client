@@ -8,6 +8,7 @@ import basket, { type IApiBasket } from "./basket";
 import discounts, { type IApiDiscounts } from "./discounts";
 import chargeTypes, { type IApiChargeTypes } from "./charge-types";
 import checkout, { type IApiCheckout } from "./checkout";
+import expressCheckout, { type IApiExpressCheckout } from "./express-checkout";
 import eligibleUserGroups, {
   type IApiEligibleUserGroups,
 } from "./eligible-user-groups";
@@ -53,6 +54,7 @@ interface IApi {
   hasFullAccount(): IApiHasFullAccount;
   user(): IApiUser;
   delivery(): IApiDelivery;
+  expressCheckout(): IApiExpressCheckout;
 }
 
 export default function api(): IApi {
@@ -78,5 +80,6 @@ export default function api(): IApi {
     orders,
     hasFullAccount,
     delivery,
+    expressCheckout,
   };
 }

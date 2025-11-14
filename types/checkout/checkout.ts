@@ -36,3 +36,8 @@ export interface ICheckoutShowRequest extends IBasketLinesRequest {
 }
 
 export interface ICheckoutProcessOrderRequest {}
+
+export interface IIndexExpressCheckoutRequest {
+  total: number;
+  currency?: string;
+}
